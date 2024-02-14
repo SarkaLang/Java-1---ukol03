@@ -42,25 +42,27 @@ public class Pocitac {
 
     public boolean jeZapnuty() {
         return jeZapnuty;
-
     }
 
     public void zapniSe() {
         if (jeZapnuty) {
             System.out.println("Počítač je zapnutý");
         } else {
-            jeZapnuty = true;
             System.err.println("Počítač už je zapnutý");
+        }
+
+        if (cpu == null || ram == null || pevnyDisk == null) {
+            System.err.println("Počítač nemá všechny povinné součásti");
         }
     }
 
     public void vypniSe() {
-     if (jeZapnuty = false) {
-         System.out.println("Počítač je vypnutý");
-     } else {
-         System.out.println();
-     }
+        jeZapnuty = false;
+        System.out.println("Počítač je vypnutý");
 
+        if (!jeZapnuty) {
+            System.out.println();
+        }
     }
 
 }
