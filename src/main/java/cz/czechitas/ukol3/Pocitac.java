@@ -1,6 +1,7 @@
 package cz.czechitas.ukol3;
 
 public class Pocitac {
+
     private boolean jeZapnuty;
     private Procesor cpu;
     private Pamet ram;
@@ -41,14 +42,16 @@ public class Pocitac {
     }
 
     public boolean jeZapnuty() {
-        return jeZapnuty;
+        return jeZapnuty = false;
     }
 
     public void zapniSe() {
+        jeZapnuty = true;
+        System.out.println("Počítač je zapnutý");
+
         if (jeZapnuty) {
-            System.out.println("Počítač je zapnutý");
-        } else {
-            System.err.println("Počítač už je zapnutý");
+            System.out.println("Počítač už je zapnutý");
+            return;
         }
 
         if (cpu == null || ram == null || pevnyDisk == null) {
@@ -60,8 +63,8 @@ public class Pocitac {
         jeZapnuty = false;
         System.out.println("Počítač je vypnutý");
 
-        if (!jeZapnuty) {
-            System.out.println();
+        if(jeZapnuty) {
+            System.out.println(" ");
         }
     }
 
