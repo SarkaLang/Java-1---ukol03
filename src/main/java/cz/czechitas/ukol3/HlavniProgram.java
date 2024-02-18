@@ -36,6 +36,7 @@ public class HlavniProgram {
        mujPocitac.setPevnyDisk(mujDisk);
        mujPocitac.setDruhyDisk(druhyDisk);
 
+
        System.out.println(mujPocitac.toString());
 
        mujPocitac.zapniSe();

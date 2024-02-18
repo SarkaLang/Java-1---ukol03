@@ -36,11 +36,13 @@ public class Disk {
 
         if(vyuziteMisto > kapacita) {
          System.err.println("Na disku už není místo");
+
      } else {
             long vysledek = (kapacita - vyuziteMisto);
             System.out.println("Na disku zbývá:");
             System.out.println(vysledek);
         }
+
     }
 
     public void vymazSouboryOVelikosti(long velikost) {

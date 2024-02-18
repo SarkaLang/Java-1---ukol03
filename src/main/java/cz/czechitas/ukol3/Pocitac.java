@@ -84,6 +84,7 @@ public class Pocitac{
         System.out.println("Počítač je vypnutý");
     }
 
+    // snaha o 3.zadani
     public void vytvorSouborOVelikosti(long velikost) {
        if(!jeZapnuty)  {
            System.err.println("Nelze vytvořit soubor, počítač je vypnutý");
@@ -96,5 +97,6 @@ public class Pocitac{
         } else {
             System.err.println("Na disku není dostatek místa pro vytvoření souboru.");
         }
+
     }
 }
