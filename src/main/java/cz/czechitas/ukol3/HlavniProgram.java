@@ -36,11 +36,13 @@ public class HlavniProgram {
        mujPocitac.setPevnyDisk(mujDisk);
        mujPocitac.setDruhyDisk(druhyDisk);
 
-        System.out.println(mujPocitac.toString());
+       System.out.println(mujPocitac.toString());
 
        mujPocitac.zapniSe();
        mujPocitac.vypniSe();
        mujPocitac.vypniSe();
+
+       //mujPocitac.vytvorSouborOVelikosti(3_456_456_345L);
     }
 
 }

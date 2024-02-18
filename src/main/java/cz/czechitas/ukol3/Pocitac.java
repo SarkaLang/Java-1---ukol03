@@ -87,15 +87,14 @@ public class Pocitac{
     public void vytvorSouborOVelikosti(long velikost) {
        if(!jeZapnuty)  {
            System.err.println("Nelze vytvořit soubor, počítač je vypnutý");
-           return;
        }
 
-       if (pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto() <= velikost) {
-           pevnyDisk.vytvorSouborOVelikosti(velikost);
-       } else if(pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto() >= velikost) {
-           druhyDisk.vytvorSouborOVelikosti(velikost);
-       } else {
-           System.err.println("Na disku už není místo");
-       }
+        if (pevnyDisk != null && pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto() >= velikost) {
+            pevnyDisk.vytvorSouborOVelikosti(velikost);
+        } else if (druhyDisk != null && druhyDisk.getKapacita() - druhyDisk.getVyuziteMisto() >= velikost) {
+            druhyDisk.vytvorSouborOVelikosti(velikost);
+        } else {
+            System.err.println("Na disku není dostatek místa pro vytvoření souboru.");
+        }
     }
 }
