@@ -24,8 +24,8 @@ public class HlavniProgram {
        Disk mujDisk = new Disk();
        mujDisk.setKapacita(12_345_678_333L);
        mujDisk.setVyuziteMisto(0);
-       mujDisk.vytvorSouborOVelikosti(11_345_678_345L);
-       mujDisk.vymazSouboryOVelikosti(5_345_678_345L);
+       mujDisk.vytvorSouborOVelikosti(15_345_678_345L);
+       //mujDisk.vymazSouboryOVelikosti(5_345_678_345L);
 
        Disk druhyDisk = new Disk();
        druhyDisk.setKapacita(12_345_678_333L);

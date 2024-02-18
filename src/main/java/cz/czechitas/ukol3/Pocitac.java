@@ -57,13 +57,10 @@ public class Pocitac{
     }
 
     public boolean jeZapnuty() {
-        return jeZapnuty = false;
+        return jeZapnuty;
     }
 
     public void zapniSe() {
-      jeZapnuty = true;
-        System.out.println("Počítač je zapnutý");
-
         if (jeZapnuty) {
             System.out.println("Počítač už je zapnutý");
             return;
@@ -73,15 +70,32 @@ public class Pocitac{
             System.err.println("Počítač nemá všechny povinné součásti");
         }
 
+        jeZapnuty = true;
+        System.out.println("Počítač je zapnutý");
+
     }
 
     public void vypniSe() {
-        jeZapnuty = false;
-        System.out.println("Počítač je vypnutý");
-
         if(!jeZapnuty) {
             System.out.println(" ");
+            return;
         }
+        jeZapnuty = false;
+        System.out.println("Počítač je vypnutý");
     }
 
+    public void vytvorSouborOVelikosti(long velikost) {
+       if(!jeZapnuty)  {
+           System.err.println("Nelze vytvořit soubor, počítač je vypnutý");
+           return;
+       }
+
+       if (pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto() <= velikost) {
+           pevnyDisk.vytvorSouborOVelikosti(velikost);
+       } else if(pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto() >= velikost) {
+           druhyDisk.vytvorSouborOVelikosti(velikost);
+       } else {
+           System.err.println("Na disku už není místo");
+       }
+    }
 }
