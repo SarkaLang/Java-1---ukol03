@@ -1,11 +1,25 @@
 package cz.czechitas.ukol3;
 
-public class Pocitac {
+public class Pocitac{
 
     private boolean jeZapnuty;
     private Procesor cpu;
     private Pamet ram;
     private Disk pevnyDisk;
+
+    private Disk druhyDisk;
+
+    public void setJeZapnuty(boolean jeZapnuty) {
+        this.jeZapnuty = jeZapnuty;
+    }
+
+    public Disk getDruhyDisk() {
+        return druhyDisk;
+    }
+
+    public void setDruhyDisk(Disk druhyDisk) {
+        this.druhyDisk = druhyDisk;
+    }
 
     public Procesor getCpu() {
         return cpu;
@@ -38,6 +52,7 @@ public class Pocitac {
                 ", cpu=" + cpu +
                 ", ram=" + ram +
                 ", pevnyDisk=" + pevnyDisk +
+                ", druhyDisk=" + druhyDisk +
                 '}';
     }
 
@@ -46,7 +61,7 @@ public class Pocitac {
     }
 
     public void zapniSe() {
-        jeZapnuty = true;
+      jeZapnuty = true;
         System.out.println("Počítač je zapnutý");
 
         if (jeZapnuty) {
@@ -57,13 +72,14 @@ public class Pocitac {
         if (cpu == null || ram == null || pevnyDisk == null) {
             System.err.println("Počítač nemá všechny povinné součásti");
         }
+
     }
 
     public void vypniSe() {
         jeZapnuty = false;
         System.out.println("Počítač je vypnutý");
 
-        if(jeZapnuty) {
+        if(!jeZapnuty) {
             System.out.println(" ");
         }
     }

@@ -19,7 +19,7 @@ public class HlavniProgram {
        Pamet mojePamet = new Pamet();
        mojePamet.setKapacita(25_345_678_123_345L);
 
-        System.out.println(mujPocitac.toString());
+       System.out.println(mujPocitac.toString());
 
        Disk mujDisk = new Disk();
        mujDisk.setKapacita(12_345_678_333L);
@@ -27,9 +27,14 @@ public class HlavniProgram {
        mujDisk.vytvorSouborOVelikosti(11_345_678_345L);
        mujDisk.vymazSouboryOVelikosti(5_345_678_345L);
 
+       Disk druhyDisk = new Disk();
+       druhyDisk.setKapacita(12_345_678_333L);
+       druhyDisk.setVyuziteMisto(0);
+
        mujPocitac.setCpu(mujProcesor);
        mujPocitac.setRam(mojePamet);
        mujPocitac.setPevnyDisk(mujDisk);
+       mujPocitac.setDruhyDisk(druhyDisk);
 
         System.out.println(mujPocitac.toString());
 

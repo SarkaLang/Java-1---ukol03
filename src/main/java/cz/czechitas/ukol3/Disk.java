@@ -41,7 +41,6 @@ public class Disk {
             System.out.println("Na disku zbývá:");
             System.out.println(vysledek);
         }
-
     }
 
     public void vymazSouboryOVelikosti(long velikost) {
