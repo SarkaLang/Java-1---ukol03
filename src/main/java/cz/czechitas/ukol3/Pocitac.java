@@ -93,14 +93,21 @@ public class Pocitac{
 
         long noveMisto = pevnyDisk.getVyuziteMisto() + velikost;
 
-        if (noveMisto > pevnyDisk.getKapacita()) {
-            System.err.println("Nelze vytvořit soubor, není dostatek místa na disku.");
-            return;
-        } else if (noveMisto < pevnyDisk.getKapacita()) {
-            long vysledek = pevnyDisk.getKapacita() - (pevnyDisk.getVyuziteMisto() + noveMisto);
-            System.out.println("Na disku zbývá:");
-            System.out.println(vysledek);
+        if (noveMisto > pevnyDisk.getKapacita() && noveMisto > pevnyDisk.getKapacita() + druhyDisk.getKapacita()) {
+            noveMisto = pevnyDisk.getKapacita();
+            System.err.println("Není místo na žádném z disků");
+        } else {
+            if (noveMisto > pevnyDisk.getKapacita()) {
+                druhyDisk.setVyuziteMisto(noveMisto - pevnyDisk.getKapacita() );
+                noveMisto = pevnyDisk.getKapacita();
+            } else if (noveMisto < pevnyDisk.getKapacita()) {
+                long vysledek = pevnyDisk.getKapacita() - (pevnyDisk.getVyuziteMisto() + noveMisto);
+                System.out.println("Na disku zbývá:");
+                System.out.println(vysledek);
+            }
+
         }
+
 
         pevnyDisk.setVyuziteMisto(noveMisto);
     }
