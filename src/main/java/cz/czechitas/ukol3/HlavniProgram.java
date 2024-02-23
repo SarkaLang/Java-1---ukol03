@@ -36,10 +36,11 @@ public class HlavniProgram {
 
 
        System.out.println(mujPocitac.toString());
-       mujPocitac.vytvorSouborOVelikosti(30_345_678_345L);
+       mujPocitac.vytvorSouborOVelikosti(15_000_000_000L);
        System.out.println(mujPocitac.toString());
-       //mujPocitac.vymazSouborOVelikosti(5_345_678_345L);
-       //System.out.println(mujPocitac.toString());
+
+       mujPocitac.vymazSouborOVelikosti(5_345_678_345L);
+       System.out.println(mujPocitac.toString());
 
        mujPocitac.zapniSe();
        mujPocitac.vypniSe();

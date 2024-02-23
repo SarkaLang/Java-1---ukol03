@@ -1,6 +1,6 @@
 package cz.czechitas.ukol3;
 
-public class Pocitac{
+public class Pocitac {
 
     private boolean jeZapnuty;
     private Procesor cpu;
@@ -43,7 +43,7 @@ public class Pocitac{
 
     public void setPevnyDisk(Disk pevnyDisk) {
         this.pevnyDisk = pevnyDisk;
-        
+
     }
 
     @Override
@@ -77,7 +77,7 @@ public class Pocitac{
     }
 
     public void vypniSe() {
-        if(!jeZapnuty) {
+        if (!jeZapnuty) {
             System.out.println(" ");
             return;
         }
@@ -87,7 +87,7 @@ public class Pocitac{
 
     // snaha o 3.zadani
     public void vytvorSouborOVelikosti(long velikost) {
-        if(!jeZapnuty)  {
+        if (!jeZapnuty) {
             System.err.println("Nelze vytvořit soubor, počítač je vypnutý");
         }
 
@@ -98,7 +98,7 @@ public class Pocitac{
             return;
         } else {
             if (noveMisto > pevnyDisk.getKapacita()) {
-                druhyDisk.setVyuziteMisto(noveMisto - pevnyDisk.getKapacita() );
+                druhyDisk.setVyuziteMisto(noveMisto - pevnyDisk.getKapacita());
                 noveMisto = pevnyDisk.getKapacita();
             } else if (noveMisto < pevnyDisk.getKapacita()) {
                 long vysledek = pevnyDisk.getKapacita() - (pevnyDisk.getVyuziteMisto() + noveMisto);
@@ -113,21 +113,22 @@ public class Pocitac{
     }
 
     public void vymazSouborOVelikosti(long velikost) {
-        if(!jeZapnuty)  {
+        if (!jeZapnuty) {
             System.err.println("Nelze vymazat soubor, počítač je vypnutý");
         }
 
         long vymazMisto = pevnyDisk.getVyuziteMisto() - velikost;
+        long vymazDruheMisto = druhyDisk.getVyuziteMisto() - velikost;
 
-        if (vymazMisto > pevnyDisk.getVyuziteMisto()) {
-            System.err.println("Nelze vymazat soubor, není dostatek místa na disku.");
+        if (pevnyDisk.getVyuziteMisto() < velikost && velikost > pevnyDisk.getKapacita() + druhyDisk.getKapacita()) {
+            System.err.println("Error");
             return;
         } else {
-            long vysledek = pevnyDisk.getKapacita() - vymazMisto;
-            System.out.println("Na disku zbývá:");
-            System.out.println(vysledek);
+              // kod pro prvně odečtení z druhé disku a následně odečítání z prvího disku
         }
 
-        pevnyDisk.setVyuziteMisto(vymazMisto);
+            pevnyDisk.setVyuziteMisto(vymazMisto);
+            druhyDisk.setVyuziteMisto(vymazDruheMisto);
+        }
     }
-}
+
