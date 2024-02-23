@@ -24,8 +24,6 @@ public class HlavniProgram {
        Disk mujDisk = new Disk();
        mujDisk.setKapacita(12_345_678_333L);
        mujDisk.setVyuziteMisto(0);
-       mujDisk.vytvorSouborOVelikosti(15_345_678_345L);
-       //mujDisk.vymazSouboryOVelikosti(5_345_678_345L);
 
        Disk druhyDisk = new Disk();
        druhyDisk.setKapacita(12_345_678_333L);
@@ -38,12 +36,15 @@ public class HlavniProgram {
 
 
        System.out.println(mujPocitac.toString());
+       mujPocitac.vytvorSouborOVelikosti(11_345_678_345L);
+       System.out.println(mujPocitac.toString());
+       mujPocitac.vymazSouborOVelikosti(5_345_678_345L);
+       System.out.println(mujPocitac.toString());
 
        mujPocitac.zapniSe();
        mujPocitac.vypniSe();
        mujPocitac.vypniSe();
 
-       //mujPocitac.vytvorSouborOVelikosti(3_456_456_345L);
     }
 
 }

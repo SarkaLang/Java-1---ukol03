@@ -43,6 +43,7 @@ public class Pocitac{
 
     public void setPevnyDisk(Disk pevnyDisk) {
         this.pevnyDisk = pevnyDisk;
+        
     }
 
     @Override
@@ -86,17 +87,40 @@ public class Pocitac{
 
     // snaha o 3.zadani
     public void vytvorSouborOVelikosti(long velikost) {
-       if(!jeZapnuty)  {
-           System.err.println("Nelze vytvořit soubor, počítač je vypnutý");
-       }
-
-        if (pevnyDisk != null && pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto() >= velikost) {
-            pevnyDisk.vytvorSouborOVelikosti(velikost);
-        } else if (druhyDisk != null && druhyDisk.getKapacita() - druhyDisk.getVyuziteMisto() >= velikost) {
-            druhyDisk.vytvorSouborOVelikosti(velikost);
-        } else {
-            System.err.println("Na disku není dostatek místa pro vytvoření souboru.");
+        if(!jeZapnuty)  {
+            System.err.println("Nelze vytvořit soubor, počítač je vypnutý");
         }
 
+        long noveMisto = pevnyDisk.getVyuziteMisto() + velikost;
+
+        if (noveMisto > pevnyDisk.getKapacita()) {
+            System.err.println("Nelze vytvořit soubor, není dostatek místa na disku.");
+            return;
+        } else if (noveMisto < pevnyDisk.getKapacita()) {
+            long vysledek = pevnyDisk.getKapacita() - (pevnyDisk.getVyuziteMisto() + noveMisto);
+            System.out.println("Na disku zbývá:");
+            System.out.println(vysledek);
+        }
+
+        pevnyDisk.setVyuziteMisto(noveMisto);
+    }
+
+    public void vymazSouborOVelikosti(long velikost) {
+        if(!jeZapnuty)  {
+            System.err.println("Nelze vymazat soubor, počítač je vypnutý");
+        }
+
+        long vymazMisto = pevnyDisk.getVyuziteMisto() - velikost;
+
+        if (vymazMisto > pevnyDisk.getVyuziteMisto()) {
+            System.err.println("Nelze vymazat soubor, není dostatek místa na disku.");
+            return;
+        } else {
+            long vysledek = pevnyDisk.getKapacita() - vymazMisto;
+            System.out.println("Na disku zbývá:");
+            System.out.println(vysledek);
+        }
+
+        pevnyDisk.setVyuziteMisto(vymazMisto);
     }
 }

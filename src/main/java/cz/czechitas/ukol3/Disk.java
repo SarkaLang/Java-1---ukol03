@@ -12,6 +12,7 @@ public class Disk {
 
     public void setVyuziteMisto(long vyuziteMisto) {
         this.vyuziteMisto = vyuziteMisto;
+
     }
 
     public long getKapacita() {
@@ -31,7 +32,7 @@ public class Disk {
                 '}';
     }
 
-    public void vytvorSouborOVelikosti(long velikost) {
+   /*} public void vytvorSouborOVelikosti(long velikost) {
         vyuziteMisto = vyuziteMisto + velikost;
 
         if(vyuziteMisto > kapacita) {
@@ -45,7 +46,7 @@ public class Disk {
 
     }
 
-    public void vymazSouboryOVelikosti(long velikost) {
+    /*public void vymazSouboryOVelikosti(long velikost) {
      vyuziteMisto = vyuziteMisto - velikost;
 
      if (vyuziteMisto == 0) {
@@ -56,5 +57,5 @@ public class Disk {
          System.out.println(vysledek);
      }
     }
-
+*/
 }
