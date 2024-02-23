@@ -94,8 +94,8 @@ public class Pocitac{
         long noveMisto = pevnyDisk.getVyuziteMisto() + velikost;
 
         if (noveMisto > pevnyDisk.getKapacita() && noveMisto > pevnyDisk.getKapacita() + druhyDisk.getKapacita()) {
-            noveMisto = pevnyDisk.getKapacita();
             System.err.println("Není místo na žádném z disků");
+            return;
         } else {
             if (noveMisto > pevnyDisk.getKapacita()) {
                 druhyDisk.setVyuziteMisto(noveMisto - pevnyDisk.getKapacita() );
