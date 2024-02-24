@@ -117,18 +117,28 @@ public class Pocitac {
             System.err.println("Nelze vymazat soubor, počítač je vypnutý");
         }
 
-        long vymazMisto = pevnyDisk.getVyuziteMisto() - velikost;
-        long vymazDruheMisto = druhyDisk.getVyuziteMisto() - velikost;
-
-        if (pevnyDisk.getVyuziteMisto() < velikost && velikost > pevnyDisk.getKapacita() + druhyDisk.getKapacita()) {
+        if (velikost > pevnyDisk.getKapacita() + druhyDisk.getKapacita()) {
             System.err.println("Error");
             return;
-        } else {
-              // kod pro prvně odečtení z druhé disku a následně odečítání z prvího disku
         }
 
-            pevnyDisk.setVyuziteMisto(vymazMisto);
-            druhyDisk.setVyuziteMisto(vymazDruheMisto);
+        long vymazMisto;
+
+        if (druhyDisk.getVyuziteMisto() == 0) {
+            vymazMisto = pevnyDisk.getVyuziteMisto() - velikost;
+        } else if (velikost > druhyDisk.getVyuziteMisto()) {
+            long castZDruhehoDisku = velikost - druhyDisk.getVyuziteMisto();
+            druhyDisk.setVyuziteMisto(0);
+            vymazMisto = pevnyDisk.getVyuziteMisto() - castZDruhehoDisku;
+        } else {
+            // nechat pevny disk na maximalnich využitych kapacitach a odečítat z prvniho
+            druhyDisk.setVyuziteMisto(druhyDisk.getVyuziteMisto() - velikost);
+            vymazMisto = pevnyDisk.getVyuziteMisto();
         }
-    }
+
+      pevnyDisk.setVyuziteMisto(vymazMisto);
+        }
+
+}
+
 

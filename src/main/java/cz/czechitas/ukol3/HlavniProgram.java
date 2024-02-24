@@ -39,7 +39,7 @@ public class HlavniProgram {
        mujPocitac.vytvorSouborOVelikosti(15_000_000_000L);
        System.out.println(mujPocitac.toString());
 
-       mujPocitac.vymazSouborOVelikosti(5_345_678_345L);
+       mujPocitac.vymazSouborOVelikosti(1_345_678_345L);
        System.out.println(mujPocitac.toString());
 
        mujPocitac.zapniSe();
